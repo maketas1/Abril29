@@ -1,0 +1,24 @@
+<h1>Productos</h1>
+<table>
+  <caption>
+    Lista de empleados
+  </caption>
+  <tr>
+    <th>IdProducto</th>
+    <th>Nombre Producto</th>
+    <th>Precio Unitario</th>
+    <th>Unidades Stock</th>
+  </tr>
+  @for(elemento of productos;track elemento){
+    <tr>
+        <td>{{ elemento.idProducto }}</td>
+        <td>{{ elemento.nombreProducto }}</td>
+        <td>{{ elemento.precioUnitario }}</td>
+        <td>{{ elemento.unidadesStock }}</td>
+        <td><button type="button" [routerLink]="['edicion',elemento.idProducto]">Modificar</button></td>
+        <td><button type="button" (click)="eliminar(elemento.idProducto)">Eliminar</button></td>
+    </tr>
+  }
+</table>
+<button routerLink="alta">Alta de un nuevo empleado</button>
+<router-outlet></router-outlet>
